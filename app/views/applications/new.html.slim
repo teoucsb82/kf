@@ -1,0 +1,26 @@
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-sm-12
+        h1 Apply To Kayotic Farmers
+        p Briefly tell us about yourself. Please use a real email, we will use this to contact you regarding the status of your application -- we HATE spam, and will never contact you beyond "yes/no".
+  .panel-body
+    = simple_form_for(@application) do |f|
+      .form-group
+        .col-sm-12
+          = f.error_notification
+      .form-group
+        .col-sm-6
+          = f.input :email, placeholder: "example@kayoticfarmers.com", hint: ""
+        .col-sm-2
+          = f.input :username
+        .col-sm-2
+          = f.input :thlevel,collection: 1..11, prompt: "Town Hall Level", include_blank: false, label: "Town Hall Level"
+        .col-sm-2
+          = f.input :level, as: :integer, label: "Player Level", placeholder: "ex: 100"
+        .col-sm-12
+          = f.input :about, label: "My info", placeholder: "Tell us about yourself. How long have you been playing the game, what sort of war attacks/strategy do you prefer, how active are you/how often do you play/farm/raid."
+
+      .form-group
+        .col-sm-12
+          = f.button :submit, "Submit Application", class: "btn-lg btn-primary btn-block"
