@@ -5,7 +5,7 @@ class Clan < ActiveRecord::Base
 
   private
   def refresh
-    update_attribute(:data, load_data) if updated_at < 10.seconds.ago
+    update_attribute(:data, load_data) if updated_at.present? && updated_at < 10.seconds.ago
   end
 
   def load_data
