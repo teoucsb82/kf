@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  get '/apply' => 'applications#new', as: :apply
+  resources :applications, only: [:new, :create] do
+    collection do
+      get :confirmation
+    end
+  end
+
+  resources :members, only: [:index] do
+    collection do
+      get :calendar
+    end
+  end
+  
+  resources :forums
+  
   devise_for :users
   get 'pages/home'
-
   root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

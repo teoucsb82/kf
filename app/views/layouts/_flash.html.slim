@@ -1,2 +1,2 @@
-= content_tag(:p, notice, class: "alert alert-success") if notice
-= content_tag(:p, alert, class: "alert alert-danger") if alert
+= content_tag(:div, notice, class: "alert alert-success alert-dismissable", role: "alert") if notice
+= content_tag(:div, alert, class: "alert alert-danger alert-dismissable", role: "alert") if alert

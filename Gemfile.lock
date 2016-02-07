@@ -79,11 +79,19 @@ GEM
     execjs (2.3.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
+    fullcalendar-rails (2.4.0.0)
+      jquery-rails (>= 3.1.1, < 5.0.0)
+      momentjs-rails (>= 2.9.0)
     globalid (0.3.2)
       activesupport (>= 4.1.0)
     heroku-deflater (0.5.3)
       rack (>= 1.4.5)
     hike (1.2.3)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
@@ -101,7 +109,10 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -221,10 +232,14 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-rails
+  friendly_id
+  fullcalendar-rails
   heroku-deflater
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   minitest
+  momentjs-rails
   pg
   pry
   rails (= 4.2.0)

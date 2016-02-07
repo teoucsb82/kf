@@ -1,0 +1,23 @@
+table.table.table-hover
+  thead
+    thead
+      tr
+        th Rank
+        th Name
+        th Status
+        th Exp
+        th League
+        th Trophies
+        th Donations Given
+        th Donations Received
+    tbody
+      - @clan.memberList.each do |member|
+        tr
+          td = member["clanRank"]
+          td = member["name"]
+          td = format_name(member["role"])
+          td = member["expLevel"]
+          td = image_tag(member["league"]["iconUrls"]["small"])
+          td = member["trophies"]
+          td = member["donations"]
+          td = member["donationsReceived"]

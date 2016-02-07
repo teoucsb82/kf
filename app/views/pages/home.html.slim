@@ -1,0 +1,33 @@
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-sm-9
+        h1
+          = image_tag(@clan.badgeUrls["small"])
+          span.clan-level = @clan.clanLevel
+          | Kayotic Farmers
+        p = @clan.description
+        = link_to "Apply Now", apply_path, class: "btn btn-default btn-block btn-lg"
+      .col-sm-3
+        table.table.table-condensed
+          tbody
+            tr
+              td Total Points
+              td.text-right = @clan.clanPoints
+            tr
+              td Wars Won
+              td.text-right = @clan.warWins
+            tr
+              td Wars Frequency
+              td.text-right = @clan.warFrequency
+            tr
+              td Location
+              td.text-right = @clan.location["name"]
+            tr
+              td Members
+              td.text-right #{@clan.members}/50
+            tr
+              td Clan Tag
+              td.text-right = @clan.tag
+  .panel-body
+    = render 'roster'
