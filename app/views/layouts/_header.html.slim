@@ -17,4 +17,10 @@ nav.navbar.navbar-inverse
           li = link_to "Sign Out", destroy_user_session_path, method: :delete
         - else
           li = link_to "Apply Now", apply_path
-          li = link_to "Log In", new_user_session_path
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+              | Members 
+              span.caret
+            ul.dropdown-menu
+              li = link_to "Register", new_user_registration_path
+              li = link_to "Log In", new_user_session_path

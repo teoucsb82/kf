@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :forums
   
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   get 'pages/home'
   root 'pages#home'
 
