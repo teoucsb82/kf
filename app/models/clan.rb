@@ -1,10 +1,11 @@
 class Clan < ActiveRecord::Base
   validates_presence_of :tag
   before_create :load_data 
-  # after_initialize :refresh
+  after_initialize :refresh
 
   private
   def refresh
+    return unless Rails.env.development?
     update_attribute(:data, load_data) if updated_at.present? && updated_at < 10.seconds.ago
   end
 
