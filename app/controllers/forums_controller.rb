@@ -25,6 +25,12 @@ class ForumsController < ApplicationController
   end
 
   def show
+    if @forum.slug == "application-review"
+      Application.all.each do |application|
+        @forum.topics.create(:title => application.username, description: application.about) unless @forum.topics.map(&:title).include?(application.username)
+      end
+      render :application_review
+    end
   end
 
   private
