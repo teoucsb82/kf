@@ -4,5 +4,7 @@ h1 Latest News
     .panel-body
       h5 = link_to article.title, article
       small 
+        = truncate article.description
+        br
         | Posted by 
         = article.user.username

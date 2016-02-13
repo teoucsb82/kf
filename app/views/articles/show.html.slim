@@ -1,9 +1,15 @@
-h1 = @article.title
-p.strong = @article.description
-
+.panel.panel-primary
+  .panel-heading
+    h1 = @article.title
+  .panel-body
+    strong = @article.description
 
 - if @article.user == current_user
   hr
   = link_to 'Edit', edit_article_path(@article), class: "btn btn-success"
   br
   = link_to 'Back', articles_path, class: "btn btn-info"
+
+
+hr
+= render 'disqus/thread'
