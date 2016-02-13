@@ -10,6 +10,8 @@ nav.navbar.navbar-inverse
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       - if current_user
         ul.nav.navbar-nav
+          - if admin_user?
+            li = link_to "News", articles_path
           li = link_to "Forums", forums_path
           li = link_to "Calendar", nil
       ul.nav.navbar-nav.navbar-right

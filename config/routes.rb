@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :articles
+
   get '/apply' => 'applications#new', as: :apply
   resources :applications, only: [:new, :create] do
     collection do

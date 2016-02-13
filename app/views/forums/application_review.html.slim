@@ -7,7 +7,7 @@
         tr
           th Applicant
       tbody
-        - @forum.topics.each do |topic|
+        - @forum.topics.reverse.each do |topic|
           tr
             td 
               h4 = link_to(topic.title, forum_topic_path(@forum, topic))
