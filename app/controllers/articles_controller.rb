@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_admin!, except: [:show]
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_filter :load_user, except: [:show]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -11,11 +12,12 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = @user.articles.new
   end
 
   # GET /articles/1/edit
@@ -25,7 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = @user.articles.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -65,11 +67,15 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = @user.articles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :description, :user_id)
+      params.require(:article).permit(:title, :description)
+    end
+
+    def load_user
+      @user = current_user
     end
 end

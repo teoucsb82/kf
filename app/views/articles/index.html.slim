@@ -1,11 +1,11 @@
 h1 Listing articles
 
-table
+table.table.table-striped
   thead
     tr
       th Title
       th Description
-      th User
+      th Posted By
       th
       th
       th
@@ -15,10 +15,11 @@ table
       tr
         td = article.title
         td = article.description
-        td = article.user_id
-        td = link_to 'Show', article
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = article.user.username
+        - if article.user == current_user
+          td = link_to 'Show', article
+          td = link_to 'Edit', edit_article_path(article)
+          td = link_to 'Destroy', article, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
