@@ -1,15 +1,19 @@
-h1 forums
-hr
-
-.forums
-  - @forums.each do |forum|
-    = link_to forum_path(forum) do
-      .panel.panel-primary
-        .panel-heading
-          h3.panel-title = forum.title
-        .panel-body
-          = forum.description
-
-- if admin_user?
-  hr
-  = link_to "New Forum Category", new_forum_path, class: "btn btn-primary btn-lg"
+.panel.panel-primary
+  .panel-heading
+    h1 Forums
+  .panel-body
+    table.table
+      thead
+        tr
+          th Forum
+          th Topics
+      tbody
+        - @forums.each do |forum|
+          tr
+            td 
+              h4 = link_to(forum.title, forum)
+              p = forum.description
+            td = forum.topics.count
+  - if admin_user?
+    .panel-footer
+      = link_to "New Forum Category", new_forum_path, class: "btn btn-primary btn-lg"

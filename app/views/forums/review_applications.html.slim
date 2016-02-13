@@ -1,0 +1,8 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Pending Applications
+  .panel-body
+    - @applications.each do |application|
+      p = link_to application.username, review_application_forum_path(application)
+      - if @applications.blank?
+        .col-xs-12 No applications to review at the moment

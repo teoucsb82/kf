@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :forums
+  resources :forums do
+    resources :topics
+  end
+
   
   devise_for :users, controllers: { registrations: "registrations" }
   get 'pages/home'

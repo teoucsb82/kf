@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207222634) do
+ActiveRecord::Schema.define(version: 20160210053242) do
 
   create_table "applications", force: :cascade do |t|
     t.string   "username"
@@ -60,18 +60,25 @@ ActiveRecord::Schema.define(version: 20160207222634) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "topics", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "forum_id"
+  create_table "posts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "topic_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "forum_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "slug"
   end
 
   add_index "topics", ["forum_id"], name: "index_topics_on_forum_id"
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

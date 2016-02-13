@@ -8,16 +8,16 @@
 
 
 
-.forums {
-  .panel {
-    @include transition(box-shadow 0.25s ease);
-    &:hover {
-      @include box-shadow(1px 1px 3px $brand-primary);
-    }
+// .forums {
+//   .panel {
+//     @include transition(box-shadow 0.25s ease);
+//     &:hover {
+//       @include box-shadow(1px 1px 3px $brand-primary);
+//     }
 
-  }
-  a, a:hover, a:active { 
-    text-decoration: none; 
-    color: initial;
-  }
-}
+//   }
+//   a, a:hover, a:active { 
+//     text-decoration: none; 
+//     color: initial;
+//   }
+// }

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def admin_user?
-    current_user && current_user.admin?
+    current_user && (current_user.admin? || Clan.last.player(current_user.username)['role'] == "coLeader")
   end
 end
